@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Um bot que irá moderar e deixar a sua comunidade segura de um jeito fácil!">
+  <title>Balle Bot - Modere a sua comunidade do Discord</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="load"></div>
+  <header class="cabecalho">
+    <a href="index.html">
+      <img class="cabecalho-imagem" src="assets/images/logo.svg" alt="Logo da comunidade Ballerini">
+    </a>
+    <nav class="cabecalho-menu">
+      <a class="cabecalho-menu-item" href="sobre.html">Sobre</a>
+      <a class="cabecalho-menu-item" href="https://discord.gg/wagxzStdcR">Comunidade Ballerini</a>
+      <a class="cabecalho-menu-item" href="tutorial.html">Tutorial</a>
+      <a class="cabecalho-menu-item" href="https://discord.gg/wagxzStdcR">Open Source</a>
+      <a class="cabecalho-menu-item" href="comandos.html">Comandos</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <section class="conteudo-principal">
+      <div class="conteudo-principal-escrito">
+        <h1 class="conteudo-principal-escrito-titulo">Balle Bot</h1>
+        <h2 class="conteudo-principal-escrito-subtitulo">Deixe a sua comunidade segura de um jeito fácil</h2>
+        <button class="conteudo-principal-escrito-botao" id="myButton">Me adicione!</button>
+        <script>
+          document.getElementById("myButton").addEventListener("click", function () {
+            Swal.fire({
+              title: '<span style="font-size: 1.2em; color: #007bff;">Discord</span>',
+              icon: 'info',
+              html: '<p style="text-align: center; font-size: 1.2em;">Entre em nossa <strong style="color: #007bff;">Comunidade</strong> clicando <a href="https://discord.gg/wagxzStdcR" style="color: #007bff;">aqui</a>.</p>',
+              showCloseButton: true,
+              showCancelButton: false,
+              focusConfirm: false,
+              allowOutsideClick: false,
+              showConfirmButton: false
+            })
+          });
+        </script>
+      </div>
+      <img class="main-content-image"src="assets/images/ballebot.svg" alt="Imagem da Balle Bot">
+      <script>
+        let i = 1;
+        const logo = document.querySelector('.main-content-image');
+
+        setInterval(() => {
+          mudaImg(i);
+          i = i === 8 ? 1 : i + 1;
+        }, 2000);
+      </script>
+    </section>
+
+    <section class="conteudo-secundario">
+      <h3 class="conteudo-secundario-titulo">O que ela faz por você?</h3>
+      <p class="conteudo-secundario-paragrafo">1. Cria um <strong>sistema de verificação capcha</strong> para novos membros garantirem que não são robôs</p>
+      <p class="conteudo-secundario-paragrafo">2. Possui um <strong>sistema de banimento automático</strong> para links suspeitos que forem enviados na comunidade</p>
+      <p class="conteudo-secundario-paragrafo">3. <strong>Sistema de avisos e banimento manual</strong>, para pessoas administradoras utilizarem</p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <img class="rodape-imagem" src="assets/images/ballerini.svg">
+  </footer>
+</body>
+<script src="index.js"></script>
+</html>
