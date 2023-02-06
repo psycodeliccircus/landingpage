@@ -1,4 +1,5 @@
 const { app, ipcMain, shell } = require('electron');
+const { autoUpdater } = require('electron-updater');
 
 module.exports = [
     {
@@ -26,12 +27,6 @@ module.exports = [
                 click: () => {
                     autoUpdater.checkForUpdates()
                 },
-                id: 'update-available',
-            },
-            {
-                label: 'Você já esta usando a versão ' + app.getVersion() + ' que e mais atualizada.',
-                id: 'menu-texto',
-                enabled: false,
             }
         ]
     },

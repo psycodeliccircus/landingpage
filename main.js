@@ -11,8 +11,6 @@ const appConfig = require('./config');
 setupTitlebar();
 
 let mainWindow
-let updateMenuItem = null;
-let updateMenu = null;
 
 // Menu
 let mainMenu = Menu.buildFromTemplate(MainMenuapp)
@@ -38,8 +36,6 @@ function createWindow() {
 
   attachTitlebarToWindow(mainWindow);
 
-  updateMenuItem = mainMenu.getMenuItemById('update-available');
-  updateMenu = mainMenu.getMenuItemById('menu-texto');
 
   mainWindow.webContents.on('will-navigate', (event, url) => {
     if (!url.startsWith('file://')) {
@@ -92,8 +88,6 @@ autoUpdater.on('checking-for-update', () => {
 
 autoUpdater.on('update-available', info => {
   log.log("Update available.")
-  updateMenuItem.visible = true;
-  updateMenu.visible = false;
 })
 
 autoUpdater.on('download-progress', progressObj => {
@@ -114,8 +108,6 @@ autoUpdater.on('error', err => {
 
 autoUpdater.on('update-not-available', info => {
   log.log("Update not available.")
-  updateMenuItem.visible = false;
-  updateMenu.visible = true;
   mainWindow.webContents.executeJavaScript(`Swal.fire({
         title: 'Atualizações',
         html: 'Não há atualizações disponíveis.',
